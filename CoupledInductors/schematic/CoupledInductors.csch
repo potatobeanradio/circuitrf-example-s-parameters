@@ -1,0 +1,316 @@
+{
+  "FormatVersion": 2,
+  "CellName": "CoupledInductors.csch",
+  "GridSize": 100,
+  "GridSnap": true,
+  "AuthorGridDivisor": 20,
+  "Components": [
+    {
+      "InstanceName": "Term1",
+      "Symbol": "Term",
+      "X": -1400,
+      "Y": 400,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "Num",
+          "Expression": "1",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "Z",
+          "Expression": "50",
+          "Unit": "\u03A9",
+          "ShowOnSchematic": true,
+          "Dimension": "Resistance"
+        }
+      ]
+    },
+    {
+      "InstanceName": "Term2",
+      "Symbol": "Term",
+      "X": -100,
+      "Y": 400,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "Num",
+          "Expression": "2",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "Z",
+          "Expression": "50",
+          "Unit": "\u03A9",
+          "ShowOnSchematic": true,
+          "Dimension": "Resistance"
+        }
+      ]
+    },
+    {
+      "InstanceName": "GND3",
+      "Symbol": "Ground",
+      "X": -100,
+      "Y": 600,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [],
+      "ShowTypeLabel": false,
+      "ShowInstanceName": false
+    },
+    {
+      "InstanceName": "GND4",
+      "Symbol": "Ground",
+      "X": -1400,
+      "Y": 600,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [],
+      "ShowTypeLabel": false,
+      "ShowInstanceName": false
+    },
+    {
+      "InstanceName": "L1",
+      "Symbol": "Inductor",
+      "X": -1000,
+      "Y": 400,
+      "Rotation": "R0",
+      "MirrorX": true,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "L",
+          "Expression": "1",
+          "Unit": "nH",
+          "ShowOnSchematic": true,
+          "Dimension": "Inductance"
+        }
+      ]
+    },
+    {
+      "InstanceName": "L2",
+      "Symbol": "Inductor",
+      "X": -700,
+      "Y": 400,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "L",
+          "Expression": "1",
+          "Unit": "nH",
+          "ShowOnSchematic": true,
+          "Dimension": "Inductance"
+        }
+      ]
+    },
+    {
+      "InstanceName": "GND1",
+      "Symbol": "Ground",
+      "X": -1000,
+      "Y": 600,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [],
+      "ShowTypeLabel": false,
+      "ShowInstanceName": false
+    },
+    {
+      "InstanceName": "GND2",
+      "Symbol": "Ground",
+      "X": -700,
+      "Y": 600,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [],
+      "ShowTypeLabel": false,
+      "ShowInstanceName": false
+    },
+    {
+      "InstanceName": "M1",
+      "Symbol": "Mutual",
+      "X": -900,
+      "Y": -400,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "Inductor1",
+          "Expression": "\u0022L1\u0022",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "Inductor2",
+          "Expression": "\u0022L2\u0022",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "M",
+          "Expression": "500",
+          "Unit": "pH",
+          "ShowOnSchematic": true,
+          "Dimension": "Inductance"
+        }
+      ],
+      "LabelOffsets": [
+        [
+          -70,
+          -155
+        ],
+        [
+          -70,
+          -155
+        ],
+        [
+          -70,
+          -155
+        ],
+        [
+          -70,
+          -155
+        ],
+        [
+          -70,
+          -155
+        ]
+      ]
+    },
+    {
+      "InstanceName": "MeasCoupling",
+      "Symbol": "Meas",
+      "X": -1400,
+      "Y": 1200,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "S21_dB",
+          "Expression": "dB(SP1.S(2,1))      ; coupling between the two windings",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "S21_deg",
+          "Expression": "phase(SP1.S(2,1))   ; phase() is in DEGREES",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "S11_dB",
+          "Expression": "dB(SP1.S(1,1))",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "Zden",
+          "Expression": "(1-SP1.S(1,1))*(1-SP1.S(2,2)) - SP1.S(1,2)*SP1.S(2,1)   ; S-\u003EZ denominator",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "wL1",
+          "Expression": "50*imag(((1\u002BSP1.S(1,1))*(1-SP1.S(2,2)) \u002B SP1.S(1,2)*SP1.S(2,1))/Zden)   ; Im(Z11) = 2*pi*f*L1, ohms",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "wL2",
+          "Expression": "50*imag(((1-SP1.S(1,1))*(1\u002BSP1.S(2,2)) \u002B SP1.S(1,2)*SP1.S(2,1))/Zden)   ; Im(Z22) = 2*pi*f*L2, ohms",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "wM",
+          "Expression": "50*imag(2*SP1.S(2,1)/Zden)   ; Im(Z21) = 2*pi*f*M, ohms",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "k",
+          "Expression": "wM/sqrt(wL1*wL2)   ; M/sqrt(L1*L2) - flat at 0.5, and 2*pi*f cancels",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        }
+      ]
+    }
+  ],
+  "Wires": [
+    {
+      "Points": [
+        [
+          -1400,
+          200
+        ],
+        [
+          -1000,
+          200
+        ]
+      ]
+    },
+    {
+      "Points": [
+        [
+          -700,
+          200
+        ],
+        [
+          -100,
+          200
+        ]
+      ]
+    }
+  ],
+  "NetLabels": [],
+  "Dots": [],
+  "CanvasObjects": [],
+  "View": {
+    "PanX": 0,
+    "PanY": 0,
+    "Zoom": 1
+  },
+  "Analyses": [
+    {
+      "Type": "sp",
+      "Name": "SP1",
+      "Enabled": true,
+      "Sweeps": [
+        {
+          "StartExpr": "0.1",
+          "StopExpr": "5",
+          "NumPoints": 99,
+          "Mode": "PointCount",
+          "Kind": "Linear",
+          "StartUnit": "GHz",
+          "StopUnit": "GHz"
+        }
+      ]
+    }
+  ]
+}

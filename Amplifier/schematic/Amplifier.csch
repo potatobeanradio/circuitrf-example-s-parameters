@@ -1,0 +1,292 @@
+{
+  "FormatVersion": 2,
+  "CellName": "Amplifier.csch",
+  "GridSize": 100,
+  "GridSnap": true,
+  "AuthorGridDivisor": 20,
+  "Components": [
+    {
+      "InstanceName": "S1",
+      "Symbol": "Snp",
+      "X": -1200,
+      "Y": -300,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "NumPorts",
+          "Expression": "2",
+          "Unit": "",
+          "ShowOnSchematic": false,
+          "Dimension": "None"
+        },
+        {
+          "Name": "File",
+          "Expression": "Amplifier/schematic/potentially_unstable_amp.s2p",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "RefNode",
+          "Expression": "true",
+          "Unit": "",
+          "ShowOnSchematic": false,
+          "Dimension": "None"
+        },
+        {
+          "Name": "PinConfig",
+          "Expression": "Standard",
+          "Unit": "",
+          "ShowOnSchematic": false,
+          "Dimension": "None"
+        },
+        {
+          "Name": "Pitch",
+          "Expression": "Loose",
+          "Unit": "",
+          "ShowOnSchematic": false,
+          "Dimension": "None"
+        },
+        {
+          "Name": "InterpMode",
+          "Expression": "Cubic",
+          "Unit": "",
+          "ShowOnSchematic": false,
+          "Dimension": "None"
+        },
+        {
+          "Name": "ExtrapMode",
+          "Expression": "NearestEdge",
+          "Unit": "",
+          "ShowOnSchematic": false,
+          "Dimension": "None"
+        }
+      ]
+    },
+    {
+      "InstanceName": "GND1",
+      "Symbol": "Ground",
+      "X": -1200,
+      "Y": -100,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [],
+      "ShowTypeLabel": false,
+      "ShowInstanceName": false
+    },
+    {
+      "InstanceName": "Term2",
+      "Symbol": "Term",
+      "X": -400,
+      "Y": -100,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "Num",
+          "Expression": "2",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "Z",
+          "Expression": "50",
+          "Unit": "\u03A9",
+          "ShowOnSchematic": true,
+          "Dimension": "Resistance"
+        }
+      ]
+    },
+    {
+      "InstanceName": "GND2",
+      "Symbol": "Ground",
+      "X": -1900,
+      "Y": 100,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [],
+      "ShowTypeLabel": false,
+      "ShowInstanceName": false
+    },
+    {
+      "InstanceName": "GND3",
+      "Symbol": "Ground",
+      "X": -400,
+      "Y": 100,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [],
+      "ShowTypeLabel": false,
+      "ShowInstanceName": false
+    },
+    {
+      "InstanceName": "Term1",
+      "Symbol": "Term",
+      "X": -1900,
+      "Y": -100,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "Num",
+          "Expression": "1",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "Z",
+          "Expression": "50",
+          "Unit": "\u03A9",
+          "ShowOnSchematic": true,
+          "Dimension": "Resistance"
+        }
+      ]
+    },
+    {
+      "InstanceName": "MeasGain",
+      "Symbol": "Meas",
+      "X": -2100,
+      "Y": 1400,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "S11_dB",
+          "Expression": "dB(SP1.S(1,1))            ; i and j are 1-based PORT NUMBERS, not indices",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "S21_dB",
+          "Expression": "dB(SP1.S(2,1))",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "S12_dB",
+          "Expression": "dB(SP1.S(1,2))",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "S22_dB",
+          "Expression": "dB(SP1.S(2,2))",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "VSWR_in",
+          "Expression": "(1\u002Bmag(SP1.S(1,1)))/(1-mag(SP1.S(1,1)))",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        }
+      ]
+    },
+    {
+      "InstanceName": "MeasStability",
+      "Symbol": "Meas",
+      "X": -2100,
+      "Y": 700,
+      "Rotation": "R0",
+      "MirrorX": false,
+      "Disable": "None",
+      "Parameters": [
+        {
+          "Name": "Delta",
+          "Expression": "SP1.S(1,1)*SP1.S(2,2) - SP1.S(1,2)*SP1.S(2,1)   ; determinant",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "K",
+          "Expression": "(1 - mag(SP1.S(1,1))*mag(SP1.S(1,1)) - mag(SP1.S(2,2))*mag(SP1.S(2,2)) \u002B mag(Delta)*mag(Delta)) / (2*mag(SP1.S(1,2)*SP1.S(2,1)))   ; Rollett K. x*x, not x^2: only \u002B - * / broadcast over a cube",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "MU",
+          "Expression": "(1 - mag(SP1.S(1,1))*mag(SP1.S(1,1))) / (mag(SP1.S(2,2) - Delta*conj(SP1.S(1,1))) \u002B mag(SP1.S(1,2)*SP1.S(2,1)))   ; mu \u003E 1 is unconditionally stable",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        },
+        {
+          "Name": "MSG_dB",
+          "Expression": "dB10(mag(SP1.S(2,1))/mag(SP1.S(1,2)))            ; maximum stable gain",
+          "Unit": "",
+          "ShowOnSchematic": true,
+          "Dimension": "None"
+        }
+      ]
+    }
+  ],
+  "Wires": [
+    {
+      "Points": [
+        [
+          -1400,
+          -300
+        ],
+        [
+          -1900,
+          -300
+        ]
+      ]
+    },
+    {
+      "Points": [
+        [
+          -1000,
+          -300
+        ],
+        [
+          -400,
+          -300
+        ]
+      ]
+    }
+  ],
+  "NetLabels": [],
+  "Dots": [],
+  "CanvasObjects": [],
+  "View": {
+    "PanX": 0,
+    "PanY": 0,
+    "Zoom": 1
+  },
+  "Analyses": [
+    {
+      "Type": "sp",
+      "Name": "SP1",
+      "Enabled": true,
+      "Sweeps": [
+        {
+          "StartExpr": "1",
+          "StopExpr": "5",
+          "NumPoints": 161,
+          "Mode": "PointCount",
+          "Kind": "Linear",
+          "StartUnit": "GHz",
+          "StopUnit": "GHz"
+        }
+      ]
+    }
+  ]
+}
